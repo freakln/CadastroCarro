@@ -1,0 +1,10 @@
+table {
+  width: 100%;
+}
+.main{
+  width: 100%;
+  display: flex;
+}
+mat-card{
+  margin: 40px auto auto;
+}

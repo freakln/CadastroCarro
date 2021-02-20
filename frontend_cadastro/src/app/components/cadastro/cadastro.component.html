@@ -1,0 +1,52 @@
+<mat-toolbar>
+  <span>Cadastro de veiculo</span>
+</mat-toolbar>
+
+<mat-grid-list cols="1" rowHeight="700px">
+
+  <mat-grid-tile>
+    <mat-card class="card-top" fxFlex="80%" fxFlex.gt-sm="40%"  >
+      <h1>Cadastro</h1>
+      <form [formGroup]="carroForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Placa</mat-label>
+          <input  type="text" matInput  formControlName="placa" maxlength="8" >
+        </mat-form-field>
+        <div *ngIf="placa.invalid && (placa.dirty || placa.touched)"
+             class="alert alert-danger dspace">
+
+          <div *ngIf="placa.errors.required">
+            Placa é obrigatoria.
+          </div>
+          <div *ngIf="placa.errors.minlength">
+            Placa tem obrigatoriamente 8 caracteres alfanuméricos.
+          </div>
+        </div>
+        <mat-form-field appearance="fill">
+          <mat-label>Chassi</mat-label>
+          <input  type="text" matInput  formControlName="chassi" maxlength="12">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Renavan</mat-label>
+          <input type="text" matInput  formControlName="renavam">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Modelo</mat-label>
+          <input type="text" matInput  formControlName="modelo">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Marca</mat-label>
+          <input type="text" matInput  formControlName="marca">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Ano</mat-label>
+          <input  type="text" matInput  formControlName="ano">
+        </mat-form-field>
+        <div class="centraliza">
+          <button type="submit" [disabled]="!carroForm.valid"  mat-raised-button class="bt-cadstrar" color="primary">Cadastrar</button>
+        </div>
+      </form>
+
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
